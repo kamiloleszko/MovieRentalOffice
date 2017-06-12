@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="950" maxWidth="1003" prefHeight="950.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.rental.front.Controller">
+   <top>
+      <Label prefHeight="61.0" prefWidth="417.0" text="Super Video Company" textAlignment="RIGHT" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Harrington" size="42.0" />
+         </font></Label>
+   </top>
+   <bottom>
+      <HBox prefHeight="42.0" prefWidth="549.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="selectActiveUser" mnemonicParsing="false" onMouseClicked="#selectUserButton" prefHeight="42.0" prefWidth="206.0" text="Change Active User" />
+            <Label prefHeight="40.0" prefWidth="173.0" text="           Active User      ID:" />
+            <Label fx:id="activeUserId" prefHeight="42.0" prefWidth="103.0" />
+            <Label fx:id="activeUserName" prefHeight="42.0" prefWidth="120.0" />
+            <Label fx:id="activeUserAddress" prefHeight="41.0" prefWidth="107.0" />
+         </children>
+      </HBox>
+   </bottom>
+   
+   <left>
+      <VBox prefHeight="644.0" prefWidth="203.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="showAllUsers" mnemonicParsing="false" onMouseClicked="#showAllUsersButton" prefHeight="50.0" prefWidth="203.0" text="Show All users" wrapText="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="findUser" onMouseClicked="#findUserButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="223.0" text="Find User">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label prefHeight="158.0" prefWidth="211.0" />
+            <Button fx:id="showAllMovies" mnemonicParsing="false" onMouseClicked="#showAllMoviesButton" prefHeight="44.0" prefWidth="204.0" text="Show all movies">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="showAvailMovies" mnemonicParsing="false" onMouseClicked="#showAvailMoviesButton" prefHeight="43.0" prefWidth="203.0" text="Show available movies">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="searchByTitle" mnemonicParsing="false" onMouseClicked="#searchByTitleButton" prefHeight="47.0" prefWidth="203.0" text="Search by title">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="searchByDirector" mnemonicParsing="false" onMouseClicked="#searchByDirectorButton" prefHeight="48.0" prefWidth="209.0" text="Search by director">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Label prefHeight="138.0" prefWidth="203.0" />
+            <Button fx:id="shoAllOrders" mnemonicParsing="false" onMouseClicked="#showAllOrdersButton" prefHeight="50.0" prefWidth="203.0" text="Show all orders">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="showActiveOrders" mnemonicParsing="false" onMouseClicked="#showActiveOrdersButton" prefHeight="53.0" prefWidth="220.0" text="Show active orders">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="activeUserAllOrders" mnemonicParsing="false" onMouseClicked="#showActiveUserAllOrdersButton" prefHeight="55.0" prefWidth="203.0" text="Show active user all orders">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="activeUserActiveOrders" mnemonicParsing="false" onMouseClicked="#activeUserActiveOrdersButton" prefHeight="53.0" prefWidth="203.0" text="Show active orders of active user" textAlignment="CENTER" wrapText="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="656.0" prefWidth="698.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="usersTable" prefHeight="309.0" prefWidth="698.0">
+              <columns>
+                  <TableColumn fx:id="userid" prefWidth="104.0" text="user ID" />
+                  <TableColumn fx:id="name" prefWidth="273.0" text="name" />
+                  <TableColumn fx:id="address" prefWidth="254.0" text="address" />
+              </columns>
+            </TableView>
+            <HBox prefHeight="81.0" prefWidth="632.0">
+               <children>
+                  <TextField fx:id="newUserName" disable="true" prefHeight="31.0" prefWidth="234.0" promptText="user name..." />
+                  <TextField fx:id="newUserAddress" disable="true" prefHeight="31.0" prefWidth="270.0" promptText="user address..." />
+                  <Label fx:id="newUserData" onMouseClicked="#enableUserAdd" prefHeight="29.0" prefWidth="135.0" text="         New User">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <Glow level="0.58" />
+                     </effect></Label>
+               </children>
+            </HBox>
+            <TableView fx:id="moviesTable" prefHeight="374.0" prefWidth="698.0">
+              <columns>
+                <TableColumn fx:id="movieID" prefWidth="75.0" text="movie ID" />
+                <TableColumn fx:id="movieTitle" prefWidth="210.0" text="Title" />
+                  <TableColumn fx:id="movieDirector" prefWidth="215.0" text="Director" />
+                  <TableColumn fx:id="isMovieAvailable" prefWidth="96.0" text="Available" />
+              </columns>
+            </TableView>
+            <HBox prefHeight="32.0" prefWidth="597.0">
+               <children>
+                  <TextField fx:id="movieTitleTxt" disable="true" prefHeight="31.0" prefWidth="251.0" promptText="title..." />
+                  <TextField fx:id="directorTxt" disable="true" prefHeight="31.0" prefWidth="256.0" promptText="director..." />
+                  <Label fx:id="newMovieLabel" onMouseClicked="#enableMovieAdd" prefHeight="33.0" prefWidth="99.0" text=" New Movie">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <Glow level="0.62" />
+                     </effect>
+                  </Label>
+               </children>
+            </HBox>
+            <TableView fx:id="ordersTable" prefHeight="352.0" prefWidth="698.0">
+              <columns>
+                <TableColumn fx:id="orderID" prefWidth="65.0" text="order ID" />
+                <TableColumn fx:id="orderUserID" prefWidth="57.0" text="user ID" />
+                  <TableColumn fx:id="orderUserName" prefWidth="96.0" text="user name" />
+                  <TableColumn fx:id="orderMovieID" prefWidth="72.0" text="movie ID" />
+                  <TableColumn fx:id="orderMovieTitle" prefWidth="133.0" text="movie title" />
+                  <TableColumn fx:id="orderDateFrom" prefWidth="102.0" text="date from" />
+                  <TableColumn fx:id="orderReturned" prefWidth="71.0" text="returned" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <VBox prefHeight="866.0" prefWidth="203.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="addUser" mnemonicParsing="false" onMouseClicked="#addUserButton" prefHeight="48.0" prefWidth="203.0" text="Add User" wrapText="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="deleteUser" mnemonicParsing="false" onMouseClicked="#deleteUserButton" prefHeight="52.0" prefWidth="207.0" text="Delete User" wrapText="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Label prefHeight="157.0" prefWidth="203.0" />
+            <Button fx:id="addMOvie" mnemonicParsing="false" onMouseClicked="#addMovieButton" prefHeight="45.0" prefWidth="203.0" text="Add movie">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="deleteMovie" mnemonicParsing="false" onMouseClicked="#deleteMovieButton" prefHeight="49.0" prefWidth="205.0" text="Delete movie">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Label prefHeight="228.0" prefWidth="203.0" />
+            <Button fx:id="orderMovie" mnemonicParsing="false" onMouseClicked="#orderMovieButton" prefHeight="49.0" prefWidth="224.0" text="Order movie">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="returnMovie" mnemonicParsing="false" onMouseClicked="#returnMovieButton" prefHeight="50.0" prefWidth="203.0" text="Return movie">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="returnAllUserOrders" mnemonicParsing="false" onMouseClicked="#returnAllUserOrdersButton" prefHeight="51.0" prefWidth="203.0" text="Return all user's movies">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+         </children></VBox>
+   </right>
+</BorderPane>
